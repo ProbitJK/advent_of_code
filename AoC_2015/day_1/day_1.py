@@ -10,14 +10,12 @@ def which_floor(inp_text):
     """LSP keeps nagging me for a docstring, so here you go."""
     floor = 0
     for letter in inp_text:
-        if letter == "(":
-            floor += 1
-        elif letter == ")":
-            floor -= 1
+        floor += 1 if letter == "(" else -1
     return floor
 
 
 with open("input.txt") as inp_file:
     text = inp_file.readline()
+    text = text[:-1]
     FINAL_FLOOR = which_floor(text)
     print(FINAL_FLOOR)
